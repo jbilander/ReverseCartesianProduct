@@ -21,15 +21,12 @@ public class Main {
             }
         }
 
-        // keep track of count, needed so we know when to stop iterating
-        int numberOfRecords = tables.size();
-
         // start algorithm
         while (!done) {
 
             Collection<List<Table>> result = getMinimumGroupByResult(tables, rowLength);
 
-            if (result.size() < numberOfRecords) {
+            if (result.size() < tables.size()) {
 
                 tables.clear();
 
@@ -44,7 +41,6 @@ public class Main {
                         }
                     }
                 }
-                numberOfRecords = tables.size();
             } else {
                 done = true;
             }
